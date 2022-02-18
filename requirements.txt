@@ -1,0 +1,7 @@
+Django==3.2.12
+djangorestframework==3.13.1
+psycopg2-binary==2.9.3
+django-filter==21.1
+drf-yasg==1.20.0
+pytest==6.2.4
+pytest-django==4.3.0
