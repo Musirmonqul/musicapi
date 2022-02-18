@@ -2,7 +2,7 @@ name: Netflix API CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ latest_branch ]
 
 jobs:
   run-tests:
