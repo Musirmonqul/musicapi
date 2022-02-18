@@ -19,16 +19,17 @@ jobs:
     env:
       DJANGO_SETTINGS_MODULE: Netflix.settings
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
-      run: |
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install Requirements
+        run: |
           pip install -r requirements.txt
           pip install flake8
-    - name: Install Requirements
-      run: |
-      flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Run Tests
-      run: pytest
+      -name: actions with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Run Tests
+        run: pytest
